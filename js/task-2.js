@@ -1,20 +1,25 @@
 function calcAverageCalories(days) {
-  // Перевіряю си масив порожній
+  // перевіряю довжину масиву (якщо порожній = 0)
+
   if (days.length === 0) {
     return 0;
   }
+
+  // змінна для підрахунку суми калорій
+
   let totalCalories = 0;
 
-  // Підраховую загальну кількість калорій
+  // перебираю масив днів
 
-  for (const dayInfo of days) {
-    totalCalories += dayInfo.calories;
+  for (const day of days) {
+    // додаю к-сть цього дня до загальної суми
+
+    totalCalories += day.calories;
   }
 
-  // Обчислюю середню кількість калорій
+  // Розраховую середнє значення калорій за всі дні
 
-  const averageCalories = totalCalories / days.length;
-  return averageCalories;
+  return totalCalories / days.length;
 }
 
 // для ментора
@@ -29,7 +34,6 @@ console.log(
     { day: 'sunday', calories: 3300 },
   ])
 ); // 3180
-
 console.log(
   calcAverageCalories([
     { day: 'monday', calories: 2040 },
@@ -41,5 +45,4 @@ console.log(
     { day: 'sunday', calories: 2610 },
   ])
 ); // 2270
-
 console.log(calcAverageCalories([])); // 0
